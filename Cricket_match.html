@@ -1,0 +1,799 @@
+<html>
+    <head>
+        <title>
+            Live Match
+        </title>
+    </head>
+
+ <body>
+    <script>
+     function sleepFor( sleepDuration )
+     {
+            var now = new Date().getTime();
+            while(new Date().getTime() < now + sleepDuration)
+                { /* do nothing */ } 
+    }
+
+    var Kohli = 0, Williamson = 0, Pujara = 0, smith=0, Nicholls=0, Rashid=0, Boult=0, yadav=0, Chahal=0, Rahman=0; 
+    var Root=0, Warner=0, Kock=0, Markram=0, Plessis=0, Rabada=0, Hazlewood=0, Woakes=0, Santner=0, Plunkett=0, Zampa=0;
+    var batting_1 = ['V. Kohli', 'K.S. Williamson', 'C.A. Pujara', 'S.P.D. Smith', 'H.M. Nicholls','Rashid Khan', 'Trent Boult', 'Kuldeep Yadav', 'Yuzvendra Chahal', 'Mustafizur Rahman' ];
+    var batting_2 = ['J.E. Root', 'D.A. Warner', 'Q. de Kock', 'A.K. Markram', 'F. du Plessis', 'Kagiso Rabada', 'Josh Hazlewood', 'Chris Woakes', '	Mitchell Santner', 'Liam Plunkett', 'Adam Zampa'];
+    var bowling_1 = ['Rashid Khan', 'Trent Boult', 'Kuldeep Yadav', 'Yuzvendra Chahal', 'Mustafizur Rahman'];
+    var bowling_2 = [ 'Kagiso Rabada', 'Josh Hazlewood', 'Chris Woakes', '	Mitchell Santner', 'Liam Plunkett', 'Adam Zampa'];
+    var bowling1 = [];
+    var bowling2 = [];
+    var out = [];
+    var playing = [];
+    var i=1;
+    var player_run = [];
+
+
+    var num_of_over = prompt("Enter The Number of overs ");
+    var team1 = prompt("Enter First Team Name");
+    var team2 = prompt("Enter Second Team Name");
+
+    console.log("The Match is Between the two Teams "+ team1 + " and " + team2);
+    sleepFor(1000);
+
+    console.log("Now Heading towards the toss");
+    var toss = Math.floor(Math.random() * Math.floor(2));
+
+    if (toss == 0)
+    {
+        playing.push(batting_1[0]);
+        playing.push(batting_1[1]);  
+       
+        var over =1;
+        console.log(team1 + " Won the toss");
+        sleepFor(3000);
+        console.log("Winner team will go for bat ");
+        sleepFor(1000);
+        console.log(num_of_over + " Overs match started, "+ team1 + " is to bat ")
+        sleepFor(2000);
+     
+
+        console.log("*+*+*+*+*+*+*+*+*+*+*+*+**+*+*+*+*+*")
+        var wickets = 0;
+        var total_run =0;
+       while (wickets < 10)
+      {
+
+        var bowler_wickets =0;
+        var single_over_run = 0;
+        var bowler_selection = Math.floor(Math.random() * Math.floor(4));
+        bowling_1[bowler_selection]; 
+       /* Weather */
+       
+       var Weather = Math.floor(Math.random() *Math.floor(10));
+       if (Weather == 0)
+       {
+           console.log("Well ITs a Foggy Weather");
+           sleepFor(10000);
+                 }   
+
+       if (Weather == 1)
+       {
+           console.log("Well Its a Rainy Weather ");
+           sleepFor(5000);
+       }
+
+        if (over > num_of_over)
+        {
+            console.log("Over Finished")
+            break;
+        }  
+        console.log("\nOver # " + over + " Started ");
+        console.log("*************")
+        sleepFor(2000);   
+        var ball = 1;    
+        while (ball < 7)
+        {    
+        
+         if (wickets >= 10)
+         {
+             console.log("ALL OUT");
+             break;
+         }   
+        var run = Math.floor(Math.random() *Math.floor(7));
+
+        
+
+        if (run == 0)
+        {
+            bowler_wickets = bowler_wickets +1;
+            wickets = wickets + 1;
+            console.log (playing[0] + " Oooooooooh Its OUT ");
+            playing.shift();
+            i=i+1;
+           playing.push(batting_1[i]);
+        }
+
+       else if (run == 4)
+        {
+            console.log(playing[0] +" ==> Wooo What a boundry " + run );
+        }
+
+       else if (run == 6)
+        {
+            console.log(playing[0] +" ==> A huge  Six " + run );
+        }
+        
+        else 
+        {
+            console.log(playing[0] + " ==> " + run + " On this Ball" );
+        }
+sleepFor(1000);
+
+ /* Run for player */
+         
+ for (var k=0; k<1; k++)
+         {
+             if (playing[k] == 'V. Kohli')
+             {
+                 Kohli = Kohli + run;
+             }
+             if (playing[k] == 'K.S. Williamson')
+             {
+                 Williamson = Williamson + run ;
+             }
+             if(playing[k] == 'C.A. Pujara')
+             {
+                 Pujara = Pujara + run;
+             }
+             if(playing[k]== 'S.P.D. Smith')
+             {
+                 smith=smith+run;
+             }
+             if(playing[k] ==  'H.M. Nicholls')
+             {
+                 Nicholls = Nicholls + run;
+             }
+             if (playing[k] == 'Rashid Khan')
+             {
+                 Rashid=Rashid+run;
+             }
+             if (playing[k] == 'Trent Boult')
+             {
+                 Boult=Boult+run;
+             }
+             if (playing[k] == 'Kuldeep Yadav')
+             {
+                 yadav=yadav+run;
+             }
+             if(playing[k] == 'Yuzvendra Chahal')
+             {
+                 Chahal=Chahal+run;
+             }
+             if(playing[k] == 'Mustafizur Rahman')
+             {
+                 Rahman=Rahman+run;
+             }
+         }
+
+        /*strick rotating */
+        if (run == 1 || run == 3 || run == 5)
+        {
+           var p = playing[0];
+           playing.shift();
+           playing.push(p);
+        }
+
+
+    //    console.log("<br Ball # " + ball + " Run " + run + "<br>" );
+        total_run = total_run + run;
+        single_over_run = single_over_run + run;
+       
+        ball = ball +1;
+        }
+           console.log(total_run + " / " + wickets );
+        bowling1[over] = bowling_1[bowler_selection] + "  Run " + single_over_run  + " Wickets  " + bowler_wickets;
+       over = over +1;
+       var p = playing[0];
+           playing.shift();
+           playing.push(p);
+       }
+/* Bowling Stats */
+        console.log("\n\nBowling Statistics \n ==================");
+        for (var i=1; i<bowling1.length; i++)
+        {
+            console.log(bowling1[i] );
+        }
+/* batting stats */
+console.log ("\n\n\n Batting Stats\n ================== \n V. Kohli " + Kohli );
+console.log ("K.S. Williamson " + Williamson );
+console.log ("C.A. Pujara "+ Pujara );
+console.log ("S.P.D. Smith " + smith );
+console.log ("H.M. Nicholls " + Nicholls);
+console.log ("Rashid Khan  "+ Rashid );
+console.log ("Trent Boult " + Boult  );
+console.log ("Kuldeep Yadav "+ yadav );
+console.log ("Yuzvendra Chahal " + Chahal );
+console.log ("Mustafizur Rahman " + Rahman );
+
+      /* second innnings*/
+       console.log("\n\n\n\n************************");
+       console.log("SECOND INNINGS STARTS");
+       console.log("************************");
+        playing.pop();
+        playing.pop();
+       playing.push(batting_2[0]);
+        playing.push(batting_2[1]);
+
+
+        var i = 1;
+       var over1 =1;  
+        var wickets1 = 0;
+        var total_run1 =0;
+       while (wickets1 < 10)
+      {
+          var bowler_wickets =0;
+        var single_over_run = 0;
+        var bowler_selection = Math.floor(Math.random() * Math.floor(4));
+        bowling_2[bowler_selection]; 
+         /* Weather */
+       
+       var Weather = Math.floor(Math.random() *Math.floor(10));
+       if (Weather == 0)
+       {
+           console.log("\n\n Well ITs a Foggy Weather \n\n");
+           sleepFor(10000);
+       }   
+
+       if (Weather == 1)
+       {
+           console.log("\n\n Well Its a Rainy Weather \n\n");
+           sleepFor(5000);
+       }
+
+
+        if (total_run < total_run1)
+        {
+            break;
+        }  
+        if (over1 > num_of_over)
+        {
+            console.log("\nOver Finished\n")
+            break;
+        }  
+        console.log("\nOver # " + over1 + " Started ");
+        console.log("****************")
+        sleepFor(2000);   
+        var ball1 = 1;    
+        while (ball1 < 7)
+        {  
+
+         if (total_run < total_run1)
+         {
+             break;
+         }   
+
+         if (wickets1 >= 10)
+         {
+             console.log("\nALL OUT\n\n");
+             break;
+         }   
+        var run1 = Math.floor(Math.random() *Math.floor(7));
+        if (run1 == 0)
+        {
+            bowler_wickets = bowler_wickets +1;
+            wickets1 = wickets1 + 1;
+            console.log (playing[0] + " Oooooooooh Its OUT \n");
+            playing.shift();
+            i=i+1;
+           playing.push(batting_2[i]);
+        }
+
+      
+        else if (run1 == 4)
+        {
+            console.log(playing[0] +" ==> Wooo What a boundry " + run1 );
+        }
+
+       else if (run1 == 6)
+        {
+            console.log(playing[0] +" ==> A huge <b>Six</b> " + run1 );
+        }
+        
+        else 
+        {
+            console.log(playing[0] + " ==> " + run1 + " On this Ball" );
+        }
+        sleepFor(1000);
+/* Run for player */
+         
+for (var k=0; k<1; k++)
+         {
+             if (playing[k] == 'J.E. Root')
+             {
+                 Root=Root + run1;
+             }
+             if (playing[k] == 'D.A. Warner')
+             {
+                 Warner = Warner + run1 ;
+             }
+             if(playing[k] == 'Q. de Kock')
+             {
+                 Kock = Kock + run1;
+             }
+             if(playing[k]== 'A.K. Markram')
+             {
+                 Markram = Markram +run1;
+             }
+             if(playing[k] ==  'F. du Plessis')
+             {
+                Plessis = Plessis + run1;
+             }
+             if (playing[k] == 'Kagiso Rabada')
+             {
+                Rabada = Rabada +run1;
+             }
+             if (playing[k] ==  'Adam Zampa')
+             {
+                 Zampa = Zampa +run1;
+             }
+             if (playing[k] ==  'Chris Woakes')
+             {
+                 Woakes = Woakes +run1;
+             }
+             if(playing[k] == 'Mitchell Santner')
+             {
+                 Santner = Santner +run1;
+             }
+             if(playing[k] == 'Liam Plunkett')
+             {
+                 Plunkett = Plunkett +run1;
+             }
+             if(playing[k] == 'Josh Hazlewood')
+             {
+                 Hazlewood = Hazlewood + run1;
+             }
+         }
+
+        /*strick rotating */
+        if (run1 == 1 || run1 == 3 || run1 == 5)
+        {
+           var p = playing[0];
+           playing.shift();
+           playing.push(p);
+        }
+
+
+
+
+     //   console.log("<br> Ball # " + ball1 + " Run " + run1 + "<br>" );
+        total_run1 = total_run1 + run1;
+        single_over_run = single_over_run + run1;
+       
+        ball1 = ball1 +1;
+        }
+        console.log(total_run1 + " / " + wickets1 + "\n");
+        bowling2[over1] = bowling_2[bowler_selection] + "  Run " + single_over_run + " Wickets  " + bowler_wickets;
+       over1 = over1 +1;
+       var p = playing[0];
+           playing.shift();
+           playing.push(p);
+       }
+       console.log("\n\nBowling Statistics \n ==================");
+        for (var i=1; i<bowling2.length; i++)
+        {
+            console.log(bowling2[i] );
+        }
+
+        /* batting stats */
+console.log ("\n\n\n Batting Stats\n ================== \n J.E. Root " + Root );
+console.log ("D.A. Warner " + Warner );
+console.log ("Q. de Kock "+ Kock );
+console.log ("A.K. Markram " + Markram );
+console.log ("F. du Plessis " + Plessis );
+console.log ("Kagiso Rabada " + Rabada );
+console.log("Josh Hazaelwood " + Hazlewood );
+console.log ("Chris Woakes "+ Woakes );
+console.log ("Mitchell Santner " + Santner );
+console.log ("Liam Plunkett " + Plunkett );
+console.log ("Adam Zampa " + Zampa );
+
+
+
+       console.log("\n\n\n========================================");
+       console.log("Final Scores");
+       console.log(team1 + " :   " + total_run + " / " + wickets );
+       console.log(team2 + " :  " + total_run1 + " / " + wickets1 );
+       console.log("========================================")
+
+
+       if(total_run1 < total_run)
+       {
+           console.log(team1 + " Won the Match");
+       }
+       else if (total_run == total_run1)
+       {
+           console.log("Match drawn");
+       }
+       else if (total_run < total_run1)
+       {
+           console.log(team2 + " Won the Match");
+       }
+
+
+
+
+    }
+
+    if (toss == 1)
+    {
+        playing.pop();
+        playing.pop();
+       playing.push(batting_2[0]);
+        playing.push(batting_2[1]);
+
+
+        var over =1;
+        console.log(team2 + " Won the toss");
+        sleepFor(3000);
+        console.log("Winner team will go for bat \n");
+        sleepFor(1000);
+        console.log(num_of_over + " Overs match started, "+ team2 + " is to bat \n");
+        sleepFor(2000);
+     
+
+        console.log("\n*************************************************************")
+        var wickets = 0;
+        var total_run =0;
+       while (wickets < 10)
+      {
+        var bowler_wickets =0;
+        var single_over_run = 0;
+        var bowler_selection = Math.floor(Math.random() * Math.floor(4));
+        bowling_1[bowler_selection];
+           /* Weather */
+       
+       var Weather = Math.floor(Math.random() *Math.floor(10));
+       if (Weather == 0)
+       {
+           console.log("\n\n Well ITs a Foggy Weather \n\n");
+           sleepFor(10000);
+       }   
+
+       if (Weather == 1)
+       {
+           console.log("\n\n Well Its a Rainy Weather \n\n");
+           sleepFor(5000);
+       }
+
+        if (over > num_of_over)
+        {
+            console.log(" \n Over Finished \n")
+            break;
+        }  
+        console.log("\n Over # " + over + " Started ");
+        console.log(" ****************")
+        sleepFor(2000);   
+        var ball = 1;    
+        while (ball < 7)
+        {  
+
+         if (wickets >= 10)
+         {
+             console.log("\n ALL OUT ");
+             break;
+         }   
+        var run = Math.floor(Math.random() *Math.floor(7));
+        if (run == 0)
+        {
+            bowler_wickets = bowler_wickets +1;
+            wickets = wickets + 1;
+            console.log (playing[0] + " Oooooooooh Its OUT \n");
+            playing.shift();
+            i=i+1;
+           playing.push(batting_2[i]);
+        }
+
+       else if (run == 4)
+        {
+            console.log(playing[0] + " Wooo What a boundry " + run );
+        }
+
+       else if (run == 6)
+        {
+            console.log(playing[0] + " A huge Six " + run );
+        }
+
+        else 
+        {
+            console.log(playing[0] + " ==> " + run + " On this Ball" );
+        }
+        sleepFor(1000);
+
+/* Run for player */
+         
+for (var k=0; k<1; k++)
+         {
+             if (playing[k] == 'J.E. Root')
+             {
+                 Root=Root + run;
+             }
+             if (playing[k] == 'D.A. Warner')
+             {
+                 Warner = Warner + run ;
+             }
+             if(playing[k] == 'Q. de Kock')
+             {
+                 Kock = Kock + run;
+             }
+             if(playing[k]== 'A.K. Markram')
+             {
+                 Markram = Markram +run;
+             }
+             if(playing[k] ==  'F. du Plessis')
+             {
+                Plessis = Plessis + run;
+             }
+             if (playing[k] == 'Kagiso Rabada')
+             {
+                Rabada = Rabada +run;
+             }
+             if (playing[k] ==  'Adam Zampa')
+             {
+                 Zampa = Zampa +run;
+             }
+             if (playing[k] ==  'Chris Woakes')
+             {
+                 Woakes = Woakes +run;
+             }
+             if(playing[k] == 'Mitchell Santner')
+             {
+                 Santner = Santner +run;
+             }
+             if(playing[k] == 'Liam Plunkett')
+             {
+                 Plunkett = Plunkett +run;
+             }
+             if(playing[k] == 'Josh Hazlewood')
+             {
+                 Hazlewood = Hazlewood + run;
+             }
+         }
+
+        /*strick rotating */
+        if (run == 1 || run == 3 || run == 5)
+        {
+           var p = playing[0];
+           playing.shift();
+           playing.push(p);
+        }
+
+
+    //    console.log("<br> Ball # " + ball + " Run " + run + "<br>" );
+        total_run = total_run + run;
+        single_over_run = single_over_run + run;
+       
+        ball = ball +1;
+        }
+        console.log(total_run + " / " + wickets );
+        bowling1[over] = bowling_1[bowler_selection] + "  Run " + single_over_run  + " Wickets " + bowler_wickets;
+       over = over +1;
+       var p = playing[0];
+           playing.shift();
+           playing.push(p);
+       }
+
+       console.log("\n\nBowling Statistics \n ==================");
+        for (var i=1; i<bowling1.length; i++)
+        {
+            console.log(bowling1[i]);
+        } 
+
+        /* batting stats */
+console.log ("\n\n\n Batting Stats\n ================== \n J.E. Root " + Root );
+console.log ("D.A. Warner " + Warner );
+console.log ("Q. de Kock "+ Kock );
+console.log ("A.K. Markram " + Markram );
+console.log ("F. du Plessis " + Plessis );
+console.log (">Kagiso Rabada " + Rabada );
+console.log ("Josh Hazaelwood " + Hazlewood );
+console.log ("Chris Woakes "+ Woakes );
+console.log ("Mitchell Santner " + Santner);
+console.log ("Liam Plunkett " + Plunkett );
+console.log (">Adam Zampa " + Zampa );
+
+       console.log("\n\n\n**************************");
+       console.log("SECOND INNINGS STARTS");
+       console.log("**************************");
+
+        playing.pop();
+        playing.pop();
+       playing.push(batting_1[0]);
+        playing.push(batting_1[1]);
+        var i =1;
+       var over1 =1;  
+        var wickets1 = 0;
+        var total_run1 =0;
+       while (wickets1 < 10)
+      {
+        var bowler_wickets =0;
+        var single_over_run = 0;
+        var bowler_selection = Math.floor(Math.random() * Math.floor(4));
+        bowling_2[bowler_selection]; 
+         /* Weather */
+ /* Weather */
+       
+       var Weather = Math.floor(Math.random() *Math.floor(10));
+       if (Weather == 0)
+       {
+           console.log("\n\n Well ITs a Foggy Weather \n\n");
+           sleepFor(10000);
+       }   
+
+       if (Weather == 1)
+       {
+           console.log("\n\n Well Its a Rainy Weather \n\n");
+           sleepFor(5000);
+       }
+        if (total_run < total_run1)
+        {
+            break;
+        }  
+        if (over1 > num_of_over)
+        {
+            console.log("\nOver Finished")
+            break;
+        }  
+        console.log("\nOver # " + over1 + " Started ");
+        console.log("**************** ")
+        sleepFor(2000);   
+        var ball1 = 1;    
+        while (ball1 < 7)
+        {  
+            if (total_run < total_run1)
+         {
+             break;
+         } 
+
+         if (wickets1 >= 10)
+         {
+             console.log(" \n ALL OUT \n");
+             break;
+         }   
+        var run1 = Math.floor(Math.random() *Math.floor(7));
+        if (run1 == 0)
+        {
+            
+            bowler_wickets = bowler_wickets +1;
+            wickets1 = wickets1 + 1;
+            console.log ( playing[0] + " Oooooooooh Its OUT \n");
+            playing.shift();
+            i=i+1;
+           playing.push(batting_1[i]);
+        }
+
+       else if (run1 == 4)
+        {
+            console.log(playing[0] + " Wooo What a boundry " + run1 );
+        }
+
+       else if (run1 == 6)
+        {
+            console.log(playing[0] + " A huge Six " + run1 );
+        }
+
+        else 
+        {
+            console.log(playing[0] + " ==> " + run1 + " On this Ball" );
+        }
+        sleepFor(1000);
+
+/* Run for player */
+         
+for (var k=0; k<1; k++)
+         {
+             if (playing[k] == 'V. Kohli')
+             {
+                 Kohli = Kohli + run1;
+             }
+             if (playing[k] == 'K.S. Williamson')
+             {
+                 Williamson = Williamson + run1 ;
+             }
+             if(playing[k] == 'C.A. Pujara')
+             {
+                 Pujara = Pujara + run1;
+             }
+             if(playing[k]== 'S.P.D. Smith')
+             {
+                 smith=smith+run1;
+             }
+             if(playing[k] ==  'H.M. Nicholls')
+             {
+                 Nicholls = Nicholls + run1;
+             }
+             if (playing[k] == 'Rashid Khan')
+             {
+                 Rashid=Rashid+run1;
+             }
+             if (playing[k] == 'Trent Boult')
+             {
+                 Boult=Boult+run1;
+             }
+             if (playing[k] == 'Kuldeep Yadav')
+             {
+                 yadav=yadav+run1;
+             }
+             if(playing[k] == 'Yuzvendra Chahal')
+             {
+                 Chahal=Chahal+run1;
+             }
+             if(playing[k] == 'Mustafizur Rahman')
+             {
+                 Rahman=Rahman+run1;
+             }
+         }
+
+        /*strick rotating */
+        if (run1 == 1 || run1 == 3 || run1 == 5)
+        {
+           var p = playing[0];
+           playing.shift();
+           playing.push(p);
+        }
+
+
+
+     //   console.log("<br Ball # " + ball1 + " Run " + run1 + "<br>" );
+        total_run1 = total_run1 + run1;
+       single_over_run = single_over_run + run1;
+        ball1 = ball1 +1;
+        }
+        console.log(total_run1 + " / " + wickets1 );
+        
+        bowling2[over1] = bowling_2[bowler_selection] + "  Run " + single_over_run + " Wickets " + bowler_wickets;
+       over1 = over1 +1;
+       var p = playing[0];
+           playing.shift();
+           playing.push(p);
+       }
+       console.log("\n\nBowling Statistics \n ================== \n");
+        for (var i=1; i<bowling2.length; i++)
+        {
+            console.log(bowling2[i]);
+        }
+        
+/* batting stats */
+console.log ("\n\n\n Batting Stats\n ================== \nV. Kohli " + Kohli );
+console.log ("K.S. Williamson " + Williamson );
+console.log ("C.A. Pujara "+ Pujara );
+console.log ("S.P.D. Smith " + smith );
+console.log ("H.M. Nicholls " + Nicholls );
+console.log ("Rashid Khan " + Rashid );
+console.log ("Trent Boult " + Boult );
+console.log ("Kuldeep Yadav "+ yadav );
+console.log ("Yuzvendra Chahal " + Chahal );
+console.log ("Mustafizur Rahman " + Rahman );
+
+
+
+       console.log("\n\n\n=====================================");
+       console.log("Final Scores");
+       console.log(team2 + " :   " + total_run + " / " + wickets );
+       console.log(team1 + " :  " + total_run1 + " / " + wickets1);
+       console.log("=====================================")
+
+       if(total_run1 < total_run)
+       {
+           console.log(team2 + " Won the Match ");
+       }
+       else if (total_run == total_run1)
+       {
+           console.log("Match drawn ");
+       }
+       else if (total_run < total_run1)
+       {
+           console.log(team1 + " Won the Match ");
+       }
+
+    }
+
+
+    
+    </script>
+    </body>
+</html>
